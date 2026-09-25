@@ -42,7 +42,7 @@ def calculate_asymmetric_allocation(total_capital, mmf_yield_usd, mmf_yield_hkd,
     option_premium = (S * norm.cdf(d1)) - (K * math.exp(-r * T) * norm.cdf(d2))
     
     # 6. 計算在當前預算上限內，實盤能夠精確購買的期權合約手數 (Units Purchased)
-    # 徹底粉碎 AI 敷衍生成的文字遊戲，用硬核數學閉環
+    
     if option_premium > 0:
         units_purchased = option_budget / option_premium
     else:
@@ -61,7 +61,7 @@ def calculate_asymmetric_allocation(total_capital, mmf_yield_usd, mmf_yield_hkd,
 # SIMULATION ZONE: TARGETING JASON'S REAL PORTFOLIO PARAMS
 # ==========================================
 if __name__ == "__main__":
-    # 假設家族辦公室初始管理規模 US$1,000,000
+    # 假設初始管理規模 US$1,000,000
     portfolio_size = 1000000 
     
     # 真實富途持倉持倉數據輸入
@@ -84,3 +84,13 @@ if __name__ == "__main__":
     print(f"Available Option Budget Sleeve: ${result['Option_Budget_Sleeve']:,.2f}")
     print(f"BSM European Call Premium: ${result['Single_Option_Premium']:.4f}")
     print(f"Max Convex Option Units to Long: {result['Max_Purchasable_Option_Units']:,.2f}")
+  #=====================================
+    Jason's EMPIRICAL VALIDATION ZONE
+  #=====================================
+    print("\n--- PHASE 1:REAL-MONEY EMPIRICAL EXPOSURE ---")
+    #1. Futu Platform live account position
+  live_usd_mmf =205.68
+  live_hkd_mmf =801.53
+
+    
+    
