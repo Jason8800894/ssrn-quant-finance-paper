@@ -61,7 +61,7 @@ def calculate_asymmetric_allocation(total_capital, mmf_yield_usd, mmf_yield_hkd,
 # SIMULATION ZONE: TARGETING JASON'S REAL PORTFOLIO PARAMS
 # ==========================================
 if __name__ == "__main__":
-    # 假設未來家族辦公室初始管理規模 US$1,000,000
+    # 假設家族辦公室初始管理規模 US$1,000,000
     portfolio_size = 1000000 
     
     # 真實富途持倉持倉數據輸入
