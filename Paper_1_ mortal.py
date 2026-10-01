@@ -18,7 +18,7 @@ def calculate_asymmetric_allocation(total_capital, mmf_yield_usd, mmf_yield_hkd,
     # 平安美元貨幣基金 (+3.4010%) 與 泰康港元貨幣基金 (+2.1808%)
     r_blended = (mmf_yield_usd * 0.5) + (mmf_yield_hkd * 0.5)
     
-    # 2. 核心升級：利用隨機過程與連續複利 (Continuous Compounding) 倒推「本金地板」
+    # 2. 利用隨機過程與連續複利 (Continuous Compounding) 鎖定本金
     # min_mmf_ratio = e^(-r * T)
     min_mmf_ratio = math.exp(-r_blended * duration_years)
     
@@ -27,6 +27,7 @@ def calculate_asymmetric_allocation(total_capital, mmf_yield_usd, mmf_yield_hkd,
     
     # 4. 提取剩餘 Yield 轉化為期權預算 (Option Budget)
     option_budget = total_capital - allocated_to_mmf
+
     
     # 5. 導入 Black-Scholes-Merton (BSM) 公式，精確計算 Out-of-the-money (OTM) Call 的真實權利金 (Premium)
     T = duration_years
@@ -64,7 +65,7 @@ if __name__ == "__main__":
     # 假設初始管理規模 US$1,000,000
     portfolio_size = 1000000 
     
-    # 真實富途持倉持倉數據輸入
+    # 真實富途持倉持倉數據
     pingan_usd_yield = 0.034010   # 平安貨幣基金七日年化
     taikang_hkd_yield = 0.021808   # 泰康貨幣基金七日年化
     time_horizon = 1.0             # 1年期鎖定
