@@ -22,7 +22,7 @@ def calculate_asymmetric_allocation(total_capital, mmf_yield_usd, mmf_yield_hkd,
     # min_mmf_ratio = e^(-r * T)
     min_mmf_ratio = math.exp(-r_blended * duration_years)
     
-    # 3. 精確鎖定本金防線 (Principal Floor) 所需的配置金額
+    # 3. 鎖定本金防線 (Principal Floor) 所需的配置金額
     allocated_to_mmf = total_capital * min_mmf_ratio
     
     # 4. 提取剩餘 Yield 轉化為期權預算 (Option Budget)
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     
     # 標的物設定（例如黃金 GLD SPDR 或 標普500 指數）
     current_spot = 400.0           # 假設當前股價/ETF價格 S0
-    otm_strike = 440.0             # 設行使價為 10% OTM 向上解鎖 Convexity
+    otm_strike = 440.0             # 設行使價為 10% OTM 
     market_vol = 0.16              # 隱含波動率 (IV) 設為 16%
     
     result = calculate_asymmetric_allocation(
