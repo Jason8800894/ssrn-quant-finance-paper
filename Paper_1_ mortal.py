@@ -92,7 +92,7 @@ if __name__ == "__main__":
     #1. Futu Platform live account position
   live_usd_mmf =205.68
   live_hkd_mmf =801.53
-  live_gld_spdr=
+  live_gld_spdr=100.16
 
     
     
