@@ -16,7 +16,7 @@ def calculate_asymmetric_allocation(total_capital, mmf_yield_usd, mmf_yield_hkd,
     
     # 1. 為了隔離外匯交叉風險 (FX Cross-Currency Contamination)，對無風險利率進行雙因子加權平均
     # 平安美元貨幣基金 (+3.4010%) 與 泰康港元貨幣基金 (+2.1808%)
-    r_blended = (mmf_yield_usd * 0.5) + (mmf_yield_hkd * 0.5)
+    r_blended = (mmf_yield_usd * 0.67) + (mmf_yield_hkd * 0.33)+f_swap
     
     # 2. 利用隨機過程與連續複利 (Continuous Compounding) 鎖定本金
     # min_mmf_ratio = e^(-r * T)
